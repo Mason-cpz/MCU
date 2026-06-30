@@ -1,0 +1,34 @@
+# ==== MDK-ARM 编译产物 ====
+# 各工程的输出目录（OutputDirectory），存放 .o/.axf/.hex 等，体积最大
+MDK-ARM/STM32_template/
+MDK-ARM/STM32_template_A/
+MDK-ARM/STM32_template_B/
+
+# 编译/链接生成的中间与目标文件
+*.o
+*.d
+*.crf
+*.axf
+*.hex
+*.bin
+*.elf
+*.map
+*.lst
+*.lnp
+*.sct
+*.dep
+*.htm
+*.build_log.htm
+*.bak
+
+# ==== Keil 每用户 GUI 状态（不应进仓库）====
+*.uvguix.*
+
+# ==== 归档 / 压缩备份 ====
+*.7z
+*.zip
+*.rar
+
+# ==== OS / 编辑器杂项 ====
+.DS_Store
+Thumbs.db
