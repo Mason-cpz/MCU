@@ -39,6 +39,6 @@ void led_set(led_t *self, led_state_t state);
 void led_toggle(led_t *self);
 void led_set_blink(led_t *self, uint16_t on_ms, uint16_t off_ms, uint32_t now_ms);
 void led_tick(led_t *self, uint32_t now_ms);
-led_state_t led_is_on(const led_t *self);
+led_state_t led_get_state(const led_t *self);
 
 #endif

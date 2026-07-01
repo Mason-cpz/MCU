@@ -78,7 +78,7 @@ void led_tick(led_t *self, uint32_t now_ms)
     self->next_toggle_ms = now_ms + (next == LED_ON ? self->on_ms : self->off_ms);
 }
 
-led_state_t led_is_on(const led_t *self)
+led_state_t led_get_state(const led_t *self)
 {
     assert(self != NULL);
 

@@ -62,6 +62,32 @@ void stm32f1_gpio_pin_init(
     pin->write = stm32f1_gpio_write;
 }
 
+void stm32f1_gpio_input_init(
+    hal_gpio_pin_t *pin,
+    stm32f1_gpio_pin_ctx_t *ctx,
+    GPIO_TypeDef *port,
+    uint16_t gpio_pin,
+    bool pull_up)
+{
+    GPIO_InitTypeDef gpio = {0};
+
+    stm32f1_enable_gpio_clock(port);
+
+    gpio.Pin = gpio_pin;
+    gpio.Mode = GPIO_MODE_INPUT;
+    gpio.Pull = pull_up ? GPIO_PULLUP : GPIO_PULLDOWN;
+    gpio.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(port, &gpio);
+
+    /* 构造 HAL 抽象对象（write 对输入引脚无效，仍保留接口） */
+    ctx->port = port;
+    ctx->pin = gpio_pin;
+
+    pin->ctx = ctx;
+    pin->read = stm32f1_gpio_read;
+    pin->write = stm32f1_gpio_write;
+}
+
 static bool stm32f1_gpio_read(void *ctx)
 {
     const stm32f1_gpio_pin_ctx_t *pin = (const stm32f1_gpio_pin_ctx_t *)ctx;

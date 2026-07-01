@@ -32,17 +32,16 @@
 
 /* USER CODE END 1 */
 
-/** Configure pins as
-        * Analog
-        * Input
-        * Output
-        * EVENT_OUT
-        * EXTI
-*/
+/** GPIO 初始化职责已下沉到 BSP 层（src/bsp/bsp.c）。
+ *  所有 LED/KEY 引脚的方向、上下拉、时钟使能均由
+ *  platform/stm32f1/stm32f1_gpio_port.c 统一管理。
+ *  本函数保留为空壳，仅为兼容 CubeMX 生成流程与 main.c 调用顺序。
+ */
 void MX_GPIO_Init(void)
 {
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
+    /* 故意留空：GPIO 配置由 bsp_init() 接管。 */
 }
+
+/* USER CODE BEGIN 2 */
+
+/* USER CODE END 2 */

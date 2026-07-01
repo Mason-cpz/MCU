@@ -23,6 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "app/app.h"
 #include "bsp/bsp.h"
 
 /* USER CODE END Includes */
@@ -91,19 +92,32 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   bsp_init();
+  app_init();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
+  /* 1ms 节拍门控：只在 HAL_GetTick() 跨毫秒时推进框架，
+   * 避免 CPU 全速空转，同时保证消抖/闪烁精度。 */
   {
-    /* USER CODE END WHILE */
+    uint32_t last_tick = HAL_GetTick();
 
-    /* USER CODE BEGIN 3 */
-    bsp_tick();
+    while (1)
+    {
+      uint32_t now_tick = HAL_GetTick();
+
+      /* USER CODE END WHILE */
+
+      /* USER CODE BEGIN 3 */
+      if (now_tick != last_tick) {
+        last_tick = now_tick;
+        bsp_tick();
+        app_tick();
+      }
+    }
+    /* USER CODE END 3 */
   }
-  /* USER CODE END 3 */
 }
 
 /**

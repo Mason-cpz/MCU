@@ -86,8 +86,8 @@ bicolor_color_t bicolor_led_get(const bicolor_led_t *self)
     assert(self->green != NULL);
     assert(self->red != NULL);
 
-    green_on = led_is_on(self->green);
-    red_on = led_is_on(self->red);
+    green_on = led_get_state(self->green);
+    red_on = led_get_state(self->red);
 
     if (green_on == LED_ON && red_on == LED_ON) {
         return BICOLOR_YELLOW;

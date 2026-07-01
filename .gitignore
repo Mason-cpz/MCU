@@ -4,6 +4,10 @@ MDK-ARM/STM32_template/
 MDK-ARM/STM32_template_A/
 MDK-ARM/STM32_template_B/
 
+# 编译日志
+MDK-ARM/build.log
+MDK-ARM/build_*.log
+
 # 编译/链接生成的中间与目标文件
 *.o
 *.d
