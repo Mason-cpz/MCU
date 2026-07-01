@@ -41,7 +41,7 @@ static const stm32f1_board_led_desc_t board_leds[] = {
 
 就这三步。结构体、初始化循环、访问函数都不用动。
 
-> 灯数超过 8：把 `include/platform/stm32f1_board.h` 的 `STM32F1_BOARD_LED_MAX` 和 `include/app/app.h` 的 `APP_LED_MAX` 一起调大即可。
+> 灯数超过当前数量：把 `include/platform/stm32f1_board.h` 的 `STM32F1_BOARD_LED_MAX` 和 `src/bsp/bsp.c` 的 `BSP_LED_COUNT` 一起调大即可。
 
 ## 怎么设状态
 

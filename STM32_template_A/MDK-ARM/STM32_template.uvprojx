@@ -425,11 +425,6 @@
           <GroupName>Application/User/Framework</GroupName>
           <Files>
             <File>
-              <FileName>app.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../src/app/app.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../src/bsp/bsp.c</FilePath>
@@ -448,11 +443,6 @@
               <FileName>bicolor_led.c</FileName>
               <FileType>1</FileType>
               <FilePath>../src/drivers/bicolor_led.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1_board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../src/platform/stm32f1_board.c</FilePath>
             </File>
             <File>
               <FileName>stm32f1_gpio_port.c</FileName>
