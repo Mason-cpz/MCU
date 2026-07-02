@@ -10,9 +10,9 @@ trap 'rm -rf "$OUT"' EXIT
 gcc -std=c11 -Wall -Wextra -Werror \
     -I "$ROOT/include" -I "$ROOT/tests" \
     "$ROOT/tests/test_framework.c" \
-    "$ROOT/src/drivers/button.c" \
-    "$ROOT/src/drivers/led.c" \
-    "$ROOT/src/drivers/bicolor_led.c" \
+    "$ROOT/src/drivers/key/button.c" \
+    "$ROOT/src/drivers/led/led.c" \
+    "$ROOT/src/drivers/led/bicolor_led.c" \
     "$ROOT/src/app/app.c" \
     -o "$OUT/tests"
 

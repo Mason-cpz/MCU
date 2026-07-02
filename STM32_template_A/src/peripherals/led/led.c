@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stddef.h>
 
-#include "drivers/led.h"
+#include "peripherals/led/led.h"
 
 static bool gpio_level_for(const led_t *self, led_state_t state)
 {
@@ -15,15 +15,15 @@ static bool gpio_level_for(const led_t *self, led_state_t state)
 static void led_apply(led_t *self, led_state_t state)
 {
     self->state = state;
-    hal_gpio_write(self->pin, gpio_level_for(self, state));
+    self->gpio->write(self->gpio->ctx, gpio_level_for(self, state));
 }
 
-void led_init(led_t *self, const hal_gpio_pin_t *pin, led_polarity_t polarity)
+void led_init(led_t *self, const led_gpio_t *gpio, led_polarity_t polarity)
 {
     assert(self != NULL);
-    assert(pin != NULL);
+    assert(gpio != NULL);
 
-    self->pin = pin;
+    self->gpio = gpio;
     self->polarity = polarity;
     self->mode = LED_MODE_STEADY;
     self->state = LED_OFF;
@@ -78,7 +78,7 @@ void led_tick(led_t *self, uint32_t now_ms)
     self->next_toggle_ms = now_ms + (next == LED_ON ? self->on_ms : self->off_ms);
 }
 
-led_state_t led_is_on(const led_t *self)
+led_state_t led_get_state(const led_t *self)
 {
     assert(self != NULL);
 

@@ -5,9 +5,9 @@
 #include "bsp/bsp.h"
 
 #include "app/app.h"
-#include "drivers/bicolor_led.h"
+#include "drivers/led/bicolor_led.h"
 #include "drivers/button.h"
-#include "drivers/led.h"
+#include "drivers/led/led.h"
 #include "platform/stm32f1/stm32f1_gpio_port.h"
 #include "platform/stm32f1/stm32f1_timebase.h"
 
@@ -112,12 +112,7 @@ void bsp_init(void)
 
 void bsp_tick(void)
 {
-    uint8_t i;
     const uint32_t now_ms = hal_millis(&s_timebase);
 
     app_tick(&s_app, now_ms);
-
-    for (i = 0U; i < BSP_LED_COUNT; ++i) {
-        led_tick(&s_leds[i], now_ms);
-    }
 }

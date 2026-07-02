@@ -1,7 +1,7 @@
-#ifndef DRIVERS_BICOLOR_LED_H
-#define DRIVERS_BICOLOR_LED_H
+#ifndef PERIPHERALS_LED_BICOLOR_LED_H
+#define PERIPHERALS_LED_BICOLOR_LED_H
 
-#include "drivers/led.h"
+#include "peripherals/led/led.h"
 
 #include <stdint.h>
 

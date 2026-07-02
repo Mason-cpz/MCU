@@ -1,7 +1,7 @@
 #ifndef DRIVERS_BICOLOR_LED_H
 #define DRIVERS_BICOLOR_LED_H
 
-#include "drivers/led.h"
+#include "drivers/led/led.h"
 
 #include <stdint.h>
 

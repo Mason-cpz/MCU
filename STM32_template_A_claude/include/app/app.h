@@ -12,9 +12,9 @@
  * - 闪烁由 led_tick / bsp_tick 非阻塞推进，app 只负责切换模式。
  * - 加按键 / 加状态 = 加一张表 + 一个 apply + 一个通道，不改状态机逻辑。
  */
-#include "drivers/bicolor_led.h"
-#include "drivers/button.h"
-#include "drivers/led.h"
+#include "drivers/led/bicolor_led.h"
+#include "drivers/key/button.h"
+#include "drivers/led/led.h"
 
 #include <stdint.h>
 

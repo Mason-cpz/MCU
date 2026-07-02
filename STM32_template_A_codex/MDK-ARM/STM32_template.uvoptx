@@ -323,7 +323,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>../src/drivers/led.c</PathWithFileName>
+      <PathWithFileName>../src/drivers/led/led.c</PathWithFileName>
       <FilenameWithoutPath>led.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -335,7 +335,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>../src/drivers/bicolor_led.c</PathWithFileName>
+      <PathWithFileName>../src/drivers/led/bicolor_led.c</PathWithFileName>
       <FilenameWithoutPath>bicolor_led.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

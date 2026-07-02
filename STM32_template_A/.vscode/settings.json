@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.bmp": "code-text-binary",
+        "bicolor_led.h": "c",
+        "button.h": "c"
+    }
+}

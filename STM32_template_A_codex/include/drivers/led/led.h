@@ -19,26 +19,15 @@ typedef enum {
     LED_ACTIVE_HIGH = 1,
 } led_polarity_t;
 
-typedef enum {
-    LED_MODE_STEADY = 0,
-    LED_MODE_BLINK = 1,
-} led_mode_t;
-
 typedef struct {
     const hal_gpio_pin_t *pin;
     led_polarity_t polarity;
-    led_mode_t mode;
     led_state_t state;
-    uint16_t on_ms;
-    uint16_t off_ms;
-    uint32_t next_toggle_ms;
 } led_t;
 
 void led_init(led_t *self, const hal_gpio_pin_t *pin, led_polarity_t polarity);
 void led_set(led_t *self, led_state_t state);
 void led_toggle(led_t *self);
-void led_set_blink(led_t *self, uint16_t on_ms, uint16_t off_ms, uint32_t now_ms);
-void led_tick(led_t *self, uint32_t now_ms);
 led_state_t led_is_on(const led_t *self);
 
 #endif

@@ -12,9 +12,9 @@
 #include "app/app.h"
 
 #include "bsp/bsp.h"
-#include "drivers/bicolor_led.h"
+#include "peripherals/led/bicolor_led.h"
+#include "peripherals/led/led.h"
 #include "drivers/button.h"
-#include "drivers/led.h"
 
 #include <stddef.h>   /* NULL */
 

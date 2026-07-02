@@ -1,9 +1,9 @@
 #ifndef APP_APP_H
 #define APP_APP_H
 
-#include "drivers/bicolor_led.h"
+#include "drivers/led/bicolor_led.h"
 #include "drivers/button.h"
-#include "drivers/led.h"
+#include "drivers/led/led.h"
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -20,6 +20,12 @@ typedef struct {
     uint8_t led2_step_index;
     uint8_t bicolor_step_index;
     bool led1_boot_heartbeat;
+    bool led1_blink_on;
+    bool led2_blink_on;
+    bool bicolor_blink_on;
+    uint32_t led1_last_toggle_ms;
+    uint32_t led2_last_toggle_ms;
+    uint32_t bicolor_last_toggle_ms;
 } app_t;
 
 void app_init(

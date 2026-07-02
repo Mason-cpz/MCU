@@ -437,17 +437,17 @@
             <File>
               <FileName>button.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../src/drivers/button.c</FilePath>
+              <FilePath>../src/drivers/key/button.c</FilePath>
             </File>
             <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../src/drivers/led.c</FilePath>
+              <FilePath>../src/drivers/led/led.c</FilePath>
             </File>
             <File>
               <FileName>bicolor_led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../src/drivers/bicolor_led.c</FilePath>
+              <FilePath>../src/drivers/led/bicolor_led.c</FilePath>
             </File>
             <File>
               <FileName>stm32f1_gpio_port.c</FileName>

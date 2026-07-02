@@ -1,4 +1,4 @@
-#include "drivers/button.h"
+#include "drivers/key/button.h"
 
 /* 读取"逻辑按下"：按极性把原始电平换算成是否按下。 */
 static bool read_pressed(const button_t *self)

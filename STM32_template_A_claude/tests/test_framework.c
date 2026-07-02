@@ -5,9 +5,9 @@
  */
 #include "fake_hal.h"
 
-#include "drivers/button.h"
-#include "drivers/led.h"
-#include "drivers/bicolor_led.h"
+#include "drivers/key/button.h"
+#include "drivers/led/led.h"
+#include "drivers/led/bicolor_led.h"
 #include "app/app.h"
 
 #include <stdio.h>

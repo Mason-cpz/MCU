@@ -12,9 +12,9 @@
 #include "bsp/bsp.h"
 
 #include "app/app.h"
-#include "drivers/bicolor_led.h"
-#include "drivers/button.h"
-#include "drivers/led.h"
+#include "drivers/led/bicolor_led.h"
+#include "drivers/key/button.h"
+#include "drivers/led/led.h"
 #include "platform/platform_gpio.h"
 #include "platform/platform_timebase.h"
 

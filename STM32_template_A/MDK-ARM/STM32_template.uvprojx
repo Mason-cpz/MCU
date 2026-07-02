@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../include;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;../include;../src;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -442,12 +442,17 @@
             <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../src/drivers/led.c</FilePath>
+              <FilePath>../src/peripherals/led/led.c</FilePath>
+            </File>
+            <File>
+              <FileName>led_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../src/peripherals/led/led_bsp.c</FilePath>
             </File>
             <File>
               <FileName>bicolor_led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../src/drivers/bicolor_led.c</FilePath>
+              <FilePath>../src/peripherals/led/bicolor_led.c</FilePath>
             </File>
             <File>
               <FileName>stm32f1_gpio_port.c</FileName>
