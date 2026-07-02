@@ -90,21 +90,6 @@ button_t *bsp_key(bsp_key_id_t id)
     return &s_keys[id];
 }
 
-led_t *bsp_led1(void)
-{
-    return led_bsp_get(BSP_LED_1);
-}
-
-led_t *bsp_led2(void)
-{
-    return led_bsp_get(BSP_LED_2);
-}
-
-bicolor_led_t *bsp_bicolor(void)
-{
-    return led_bsp_bicolor();
-}
-
 uint32_t bsp_now_ms(void)
 {
     return hal_millis(&s_timebase);

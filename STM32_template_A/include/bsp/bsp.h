@@ -1,7 +1,7 @@
 #ifndef BSP_BSP_H
 #define BSP_BSP_H
 
-#include "peripherals/led/led_bsp.h"   /* led_t / bicolor_led_t / led_id_t */
+#include "peripherals/led/led_bsp.h"   /* led_id_t / led_effect_t / led_bsp_apply ... */
 #include "drivers/button.h"
 
 #include <stdint.h>
@@ -9,8 +9,8 @@
 /* 板级支持包：总装配入口。
  * 各外设细节在 peripherals/<name>/<name>_bsp.c，本文件只调 init + 暴露访问器。
  *
- * 三个对外访问器分别暴露 LED1 / LED2 / 双色灯，以及三个按键。
- * app 通过这些访问器消费事件、驱动状态机。 */
+ * app 通过 bsp_key 拿按键实例消费事件；
+ * 通过 led_bsp_apply / led_bsp_bicolor_apply（来自 led_bsp.h）驱动灯效。 */
 
 /* 板级按键编号 */
 typedef enum {
@@ -28,10 +28,7 @@ void bsp_init(void);
 void bsp_tick(void);
 
 /* —— 对 app 暴露的访问器 —— */
-button_t      *bsp_key(bsp_key_id_t id);
-led_t         *bsp_led1(void);     /* PC0 独立 LED */
-led_t         *bsp_led2(void);     /* PC1 独立 LED */
-bicolor_led_t *bsp_bicolor(void);  /* PC2+PC3 双色灯 */
-uint32_t       bsp_now_ms(void);   /* 当前毫秒时间戳 */
+button_t *bsp_key(bsp_key_id_t id);
+uint32_t  bsp_now_ms(void);   /* 当前毫秒时间戳 */
 
 #endif

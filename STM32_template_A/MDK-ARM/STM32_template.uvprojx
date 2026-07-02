@@ -435,6 +435,11 @@
               <FilePath>../src/app/app.c</FilePath>
             </File>
             <File>
+              <FileName>led_fsm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../src/app/led_fsm.c</FilePath>
+            </File>
+            <File>
               <FileName>button.c</FileName>
               <FileType>1</FileType>
               <FilePath>../src/drivers/button.c</FilePath>

@@ -114,3 +114,65 @@ bicolor_led_t *led_bsp_bicolor(void)
 {
     return &s_bicolor;
 }
+
+/* —— 灯效驱动：把枚举翻译成底层 led_set / led_set_blink 调用 ——
+ * 时序参数集中在这里，app 不再关心 500/800 这些数字。 */
+
+/* 单灯灯效时序表：on_ms / off_ms / is_blink。
+ * 改"心跳"的频率只动这里一行，全工程生效。 */
+typedef struct {
+    uint16_t on_ms;
+    uint16_t off_ms;
+    uint8_t  is_blink;
+} effect_timing_t;
+
+static const effect_timing_t s_effect_timing[LE_COUNT] = {
+    [LE_OFF]             = {   0,   0, 0 },
+    [LE_ON]              = {   0,   0, 0 },
+    [LE_BLINK_HEARTBEAT] = { 500, 500, 1 },
+    [LE_BLINK_FAST]      = { 200, 800, 1 },
+    [LE_BLINK_SLOW]      = { 800, 200, 1 },
+};
+
+void led_bsp_apply(led_id_t id, led_effect_t e, uint32_t now_ms)
+{
+    led_t *led;
+
+    if (id >= BSP_LED_COUNT || e >= LE_COUNT) {
+        return;
+    }
+
+    led = &s_leds[id];
+    if (e == LE_OFF) {
+        led_set(led, LED_OFF);
+        return;
+    }
+    if (e == LE_ON) {
+        led_set(led, LED_ON);
+        return;
+    }
+
+    /* 闪烁类 */
+    led_set_blink(led, s_effect_timing[e].on_ms,
+                  s_effect_timing[e].off_ms, now_ms);
+}
+
+void led_bsp_bicolor_apply(bicolor_effect_t e, uint32_t now_ms)
+{
+    bicolor_led_t *bi = &s_bicolor;
+
+    if (e >= BE_COUNT) {
+        return;
+    }
+
+    switch (e) {
+    case BE_OFF:           bicolor_led_set(bi, BICOLOR_OFF);                              break;
+    case BE_GREEN:         bicolor_led_set(bi, BICOLOR_GREEN);                            break;
+    case BE_RED:           bicolor_led_set(bi, BICOLOR_RED);                              break;
+    case BE_YELLOW:        bicolor_led_set(bi, BICOLOR_YELLOW);                           break;
+    case BE_GREEN_BLINK:   bicolor_led_blink(bi, BICOLOR_GREEN,  500, 500, now_ms);       break;
+    case BE_RED_BLINK:     bicolor_led_blink(bi, BICOLOR_RED,    500, 500, now_ms);       break;
+    case BE_YELLOW_BLINK:  bicolor_led_blink(bi, BICOLOR_YELLOW, 500, 500, now_ms);       break;
+    default:               break;
+    }
+}
